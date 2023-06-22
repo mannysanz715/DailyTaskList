@@ -18,6 +18,7 @@ import * as authService from './services/authService'
 
 // styles
 import './App.css'
+import CreateTask from './pages/CreateTask/CreateTask'
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
@@ -59,6 +60,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <ChangePassword handleAuthEvt={handleAuthEvt} />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/tasks/create"
+          element={
+            <ProtectedRoute user={user}>
+              <CreateTask />
             </ProtectedRoute>
           }
         />
